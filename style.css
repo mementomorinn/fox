@@ -16,7 +16,7 @@
   height: 400px;
   background-color: #999999;
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(10, auto);
 }
 .score {
   width: 400px;
@@ -24,8 +24,8 @@
   background-color: #999999;
 }
 .block {
-  width: 40px;
-  height: 40px;
+  width: auto;
+  height: auto;
   background: #ffffff;
   border: 3px solid #5c5c5c;
 }
