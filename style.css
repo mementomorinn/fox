@@ -3,29 +3,48 @@
   margin: 0;
   box-sizing: border-box;
 }
+button {
+  font: inherit;
+  border: none;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+
 .container {
-  width: 1000px;
-  display: flex;
-  justify-content: space-around;
+  width: 950px;
+  height: 750px;
+
   margin: 0 auto;
-  padding: 60px 40px;
+  padding: 60px 50px;
   background-color: #c0c0c0;
 }
 .playfield {
   width: 400px;
   height: 400px;
-  background-color: #999999;
+  background-color: #ffffff;
   display: grid;
   grid-template-columns: repeat(10, auto);
+  border: 2px solid #6e6e6e;
 }
 .score {
   width: 400px;
   height: 400px;
-  background-color: #999999;
+  background-color: #ffffff;
 }
 .block {
   width: auto;
   height: auto;
   background: #ffffff;
-  border: 3px solid #5c5c5c;
+  border: 2px solid #6e6e6e;
+  margin: 1px;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.start {
+  width: 100px;
+  height: 40px;
 }
