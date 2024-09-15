@@ -3,19 +3,29 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 button {
   font: inherit;
   border: none;
   cursor: pointer;
   background-color: #ffffff;
+  margin-bottom: 20px;
+  font-size: inherit;
+  font-weight: inherit;
 }
-
+img {
+  max-width: 20px;
+  max-height: 20px;
+}
+.score span {
+  background-color: #ffffff;
+  margin-bottom: 10px;
+  padding: 5px;
+}
 .container {
   width: 950px;
-  height: 750px;
-
   margin: 0 auto;
-  padding: 60px 50px;
+  padding: 20px 50px;
   background-color: #c0c0c0;
 }
 .playfield {
@@ -25,26 +35,30 @@ button {
   display: grid;
   grid-template-columns: repeat(10, auto);
   border: 2px solid #6e6e6e;
+  margin-bottom: 20px;
+  gap: 2px;
+  padding: 2px;
 }
 .score {
   width: 400px;
-  height: 400px;
-  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 .block {
   width: auto;
   height: auto;
-  background: #ffffff;
+  background: #adadad;
   border: 2px solid #6e6e6e;
-  margin: 1px;
-}
-.flex {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  text-align: center;
 }
 
 .start {
-  width: 100px;
-  height: 40px;
+  min-width: 100px;
+  min-height: 40px;
+  text-align: center;
+  padding: 5px 10px;
+}
+.number {
+  position: fixed;
 }
