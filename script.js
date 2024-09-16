@@ -18,21 +18,20 @@ start.addEventListener("click", function () {
   cleaning(arrCell);
   fox(5);
   console.log(arrFox);
+  start.style.display = "none";
 });
 
 //разметка
-let flag = true;
 function marking() {
-  if (flag) {
-    for (let x = 9; x >= 0; x--) {
-      for (let y = 9; y >= 0; y--) {
-        playfield.insertAdjacentHTML(
-          "afterbegin",
-          `<div class="block x${y}y${x}" onclick="getXY(this.getAttribute('class'))"></div>`
-        );
-      }
+  playfield.innerHTML = "";
+
+  for (let x = 9; x >= 0; x--) {
+    for (let y = 9; y >= 0; y--) {
+      playfield.insertAdjacentHTML(
+        "afterbegin",
+        `<div class="block x${y}y${x}" onclick="getXY(this.getAttribute('class'))"></div>`
+      );
     }
-    flag = false;
   }
 }
 
@@ -64,12 +63,9 @@ function fox(num) {
 //событие после клика
 //получение координат клетки
 function getXY(className) {
-  // console.log(className);
   const x = +className.slice(7, 8);
   const y = +className.slice(9);
   cell = document.querySelector(`.x${x}y${y}`);
-  // console.log(x);
-  // console.log(y);
   //если есть лиса
   if (arrCell[y][x] === 0) {
     if (arrFox[y][x]) {
@@ -90,6 +86,7 @@ function checkWin() {
   if (foxNumber === openFox) {
     start.innerText = `поздравляем, вы нашли всех лис!!!
        нажмите, чтобы начать новую игру`;
+    start.style.display = "block";
   }
 }
 //подсчет ближайших лис
@@ -97,7 +94,7 @@ function checkFox(x, y) {
   nearFox = 0;
   for (let i = 0; i <= 9; i++) {
     for (let j = 9; j >= 0; j--) {
-      if (arrFox[i][j] === 1) {
+      if (arrFox[i][j] === 1 && arrCell[i][j] === 0) {
         if (i === y || j === x || j - i === x - y || j - x === y - i) {
           nearFox += 1;
         }
