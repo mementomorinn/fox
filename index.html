@@ -9,14 +9,58 @@
   <body>
     <div class="container">
       <section class="playfield"></section>
-      <button class="start" id="btn-start">начать игру</button>
-      <div class="score">
-        <span>ходов сделано: 0</span>
-        <span>лис осталось: 10</span>
-        <span>таймер: 00:00</span>
+      <section class="info">
+        <button class="start" id="btn-start">начать игру</button>
+        <div class="score">
+          <span>ходов сделано: 0</span>
+          <span>лис осталось: 10</span>
+          <span>таймер: 00:00</span>
+        </div>
+        <button class="open_modal" id="open-modal-rules">читать правила</button>
+        <button class="open_modal" id="open-modal-settings">настройки</button>
+      </section>
+    </div>
+    <!-- окно с правилами -->
+    <div class="modal" id="modal-rules">
+      <div class="content">
+        <p class="rules">
+          На поле размером 10х10 клеток случайным образом генерируется
+          определенное количество «лис», причём несколько из них не могут
+          находиться в одной и той же клетке. Игрок может нажать на клетку,
+          чтобы открыть ее. В ответ он получает число, указывающее на количество
+          «лис», расположенных в одной вертикали, горизонтали и диагоналях с
+          открытой им клеткой. Если же в данной клетке находилась «лиса», то она
+          считается пойманной.<br /><br />Цель игры: поймать всех «лис» на
+          игровом поле, потратив наименьшее количество времени, и заработать как
+          можно больше «очков».
+        </p>
+        <div class="btn_flex">
+          <button class="close_modal" id="close-modal-rules">понятно!</button>
+        </div>
       </div>
     </div>
-
+    <!-- окно с настройками -->
+    <div class="modal" id="modal-settings">
+      <div class="content">
+        <div class="settings">
+          <span>автоматическое зачеркивание полей</span>
+          <button id="check-cell">вкл</button>
+        </div>
+        <div class="settings">
+          <span>таймер</span>
+          <button id="timer">выкл</button>
+        </div>
+        <div class="settings">
+          <span>количество лис на поле</span>
+          <input type="num" id="num-fox" />
+        </div>
+        <div class="btn_flex">
+          <button class="save" id="save">сохранить</button>
+          <button class="close_modal" id="close-modal-settings">к игре</button>
+        </div>
+      </div>
+    </div>
     <script src="script.js"></script>
+    <script src="modal.js"></script>
   </body>
 </html>
