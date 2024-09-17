@@ -3,6 +3,7 @@ const playfield = document.querySelector(".playfield");
 const start = document.getElementById("btn-start");
 let countFox;
 let cell;
+let cellExclusion;
 let openFox = 0;
 let foxNumber = 0;
 let nearFox = 0;
@@ -10,13 +11,16 @@ let rx = 0;
 let ry = 0;
 let arrFox = new Array(); //массив с лисами
 let arrCell = new Array(); //массив с открытыми клетками
+let isCheckCellTrue = true;
 
 //начало игры
 start.addEventListener("click", function () {
+  openFox = 0;
+  foxNumber = 0;
   marking();
   cleaning(arrFox);
   cleaning(arrCell);
-  fox(5);
+  fox(10);
   console.log(arrFox);
   start.style.display = "none";
 });
@@ -89,7 +93,7 @@ function checkWin() {
     start.style.display = "block";
   }
 }
-//подсчет ближайших лис
+//подсчет ближайших лис при открытии пустой клетки
 function checkFox(x, y) {
   nearFox = 0;
   for (let i = 0; i <= 9; i++) {
@@ -101,6 +105,7 @@ function checkFox(x, y) {
       }
     }
   }
+  checkCell(x, y, nearFox);
   cell.innerHTML = `<h2 class="number">${nearFox}</h2>`;
 }
 //изменение счетчика при открытии лисы
@@ -111,7 +116,26 @@ function count(x, y) {
         if (i === y || j === x || j - i === x - y || j - x === y - i) {
           cell = document.querySelector(`.x${j}y${i}`);
           countFox = +cell.innerText - 1;
+          checkCell(j, i, countFox);
           cell.innerHTML = `<h2 class="number">${countFox}</h2>`;
+        }
+      }
+    }
+  }
+}
+//подсвечивание клеток, в которых не может быть лис
+function checkCell(x, y, countFox) {
+  if (isCheckCellTrue) {
+    if (countFox === 0) {
+      for (let q = 0; q <= 9; q++) {
+        for (let w = 9; w >= 0; w--) {
+          if (arrCell[q][w] === 0 && arrFox[q][w] === 0) {
+            if (q === y || w === x || w - q === x - y || w - x === y - q) {
+              cellExclusion = document.querySelector(`.x${w}y${q}`);
+              cellExclusion.style.background = "#66333357";
+              arrCell[q][w] = 2;
+            }
+          }
         }
       }
     }
