@@ -106,7 +106,7 @@ function checkFox(x, y) {
     }
   }
   checkCell(x, y, nearFox);
-  cell.innerHTML = `<h2 class="number">${nearFox}</h2>`;
+  cell.innerHTML = `<p class="number">${nearFox}</p>`;
 }
 //изменение счетчика при открытии лисы
 function count(x, y) {
@@ -117,7 +117,7 @@ function count(x, y) {
           cell = document.querySelector(`.x${j}y${i}`);
           countFox = +cell.innerText - 1;
           checkCell(j, i, countFox);
-          cell.innerHTML = `<h2 class="number">${countFox}</h2>`;
+          cell.innerHTML = `<p class="number">${countFox}</p>`;
         }
       }
     }

@@ -41,7 +41,27 @@
       </div>
     </div>
     <!-- окно с настройками -->
-
+    <div class="modal" id="modal-settings">
+      <div class="overlay"></div>
+      <div class="modal_window">
+        <div class="settings">
+          <span>автоматическое зачеркивание полей</span>
+          <button id="check-cell">вкл</button>
+        </div>
+        <div class="settings">
+          <span>таймер</span>
+          <button id="timer">выкл</button>
+        </div>
+        <div class="settings">
+          <span>количество лис на поле</span>
+          <input type="num" id="num-fox" />
+        </div>
+        <div class="button_flex_settings">
+          <button id="save" class="save">сохранить</button>
+          <button id="close-modal-settings" class="close_modal">к игре!</button>
+        </div>
+      </div>
+    </div>
     <script src="script.js"></script>
     <script src="modal.js"></script>
   </body>

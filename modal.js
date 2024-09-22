@@ -13,8 +13,8 @@ const modalSett = document.getElementById("modal-settings");
 const openSett = document.getElementById("open-modal-settings");
 const closeSett = document.getElementById("close-modal-settings");
 openSett.addEventListener("click", function () {
-  modalSett.style.display = "block";
+  modalSett.classList.add("open");
 });
 closeSett.addEventListener("click", function () {
-  modalSett.style.display = "none";
+  modalSett.classList.remove("open");
 });
