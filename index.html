@@ -22,7 +22,8 @@
     </div>
     <!-- окно с правилами -->
     <div class="modal" id="modal-rules">
-      <div class="content">
+      <div class="overlay"></div>
+      <div class="modal_window">
         <p class="rules">
           На поле размером 10х10 клеток случайным образом генерируется
           определенное количество «лис», причём несколько из них не могут
@@ -34,32 +35,13 @@
           игровом поле, потратив наименьшее количество времени, и заработать как
           можно больше «очков».
         </p>
-        <div class="btn_flex">
-          <button class="close_modal" id="close-modal-rules">понятно!</button>
+        <div class="button_flex_rules">
+          <button id="close-modal-rules" class="close_modal">понятно!</button>
         </div>
       </div>
     </div>
     <!-- окно с настройками -->
-    <div class="modal" id="modal-settings">
-      <div class="content">
-        <div class="settings">
-          <span>автоматическое зачеркивание полей</span>
-          <button id="check-cell">вкл</button>
-        </div>
-        <div class="settings">
-          <span>таймер</span>
-          <button id="timer">выкл</button>
-        </div>
-        <div class="settings">
-          <span>количество лис на поле</span>
-          <input type="num" id="num-fox" />
-        </div>
-        <div class="btn_flex">
-          <button class="save" id="save">сохранить</button>
-          <button class="close_modal" id="close-modal-settings">к игре</button>
-        </div>
-      </div>
-    </div>
+
     <script src="script.js"></script>
     <script src="modal.js"></script>
   </body>

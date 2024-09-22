@@ -123,78 +123,68 @@ input {
   padding: 5px 10px;
 }
 .modal {
-  display: none;
-  position: absolute;
-  z-index: 1;
+  position: fixed;
+  top: 100vh;
   left: 0;
-  top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
-  padding: 70px;
+  padding: 15px;
+  transition: top 0ms ease-in-out 300ms;
+}
+.modal .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 1;
+  transition: all 200ms;
 }
 
-.content {
+.modal_window {
+  background: #ffffff;
   position: absolute;
-  width: 350px;
-  height: 495px;
-  top: calc(50% - 350px);
-  left: calc(50% - 175px);
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  max-width: 550px;
   border-radius: 10px;
-  background-color: rgb(255, 255, 255);
-  cursor: default;
-  padding: 30px 20px;
+  box-shadow: 0 10px 15px rgba(24, 24, 24, 0.4);
+  padding: 30px;
+  transform: translate(-50%, -50%) scale(1.15);
+  opacity: 0;
+  transition: all 300ms ease-in-out;
 }
 .rules {
-  color: #6e6e6e;
-  margin-bottom: 20px;
-}
-.btn_flex {
-  display: flex;
-  justify-content: flex-end;
-  height: 100%;
-}
-.close_modal {
-  position: absolute;
-  min-width: 100px;
-  min-height: 40px;
-  text-align: center;
-  padding: 5px 10px;
-  bottom: 0;
-  background-color: #aaaaaa;
-}
-.save {
-  position: absolute;
-  min-width: 100px;
-  min-height: 40px;
-  text-align: center;
-  padding: 5px 10px;
-  bottom: 0;
-  background-color: #aaaaaa;
-  margin-right: 110px;
-}
-@media screen and (max-width: 380px) {
-  .content {
-    width: 270px;
-    left: calc(50% - 135px);
-  }
-  .settings span {
-    width: 150px;
-  }
-}
-@media screen and (max-width: 300px) {
-  .content {
-    width: 230px;
-    height: 580px;
-    left: calc(50% - 115px);
-  }
-}
-.settings {
-  display: flex;
-  justify-content: space-between;
   margin-bottom: 30px;
 }
-.settings button {
-  margin-bottom: 0;
+.button_flex_rules {
+  display: flex;
+  justify-content: right;
+}
+.close_modal {
+  position: relative;
+  margin: 0;
+  background-color: #c0c0c093;
+  min-width: 100px;
+  min-height: 40px;
+  text-align: center;
+  padding: 5px 10px;
+}
+.close_modal:hover {
+  background-color: #c0c0c0;
+}
+
+.modal.open {
+  top: 0px;
+  transition: top 0ms ease-in-out 0ms;
+}
+.modal.open .overlay {
+  opacity: 1;
+  transition: all 300ms ease-in-out;
+}
+.modal.open .modal_window {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
 }
