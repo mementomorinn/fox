@@ -107,6 +107,7 @@ function checkFox(x, y) {
   }
   checkCell(x, y, nearFox);
   cell.innerHTML = `<p class="number">${nearFox}</p>`;
+  cell.style.background = "var(--color-white)";
 }
 //изменение счетчика при открытии лисы
 function count(x, y) {
@@ -132,7 +133,8 @@ function checkCell(x, y, countFox) {
           if (arrCell[q][w] === 0 && arrFox[q][w] === 0) {
             if (q === y || w === x || w - q === x - y || w - x === y - q) {
               cellExclusion = document.querySelector(`.x${w}y${q}`);
-              cellExclusion.style.background = "#66333357";
+              // cellExclusion.style.background = "#55483eb6";
+              cellExclusion.style.opacity = "0.7";
               arrCell[q][w] = 2;
             }
           }

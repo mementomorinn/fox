@@ -12,8 +12,9 @@
   --color-brown: #87766a;
   --color-green: #5d5e4a;
   --color-orange: #955727;
-  --color-white: #b4a89b;
-  --color-bg: #38312c;
+  --color-white: #b9ab9b;
+  --color-bg: #4d433c;
+  --color-line: #262c31;
 }
 * {
   padding: 0;
@@ -22,15 +23,20 @@
 }
 body {
   font-family: "FlowRegular";
+  background: var(--color-brown);
+  color: var(--color-bg);
+  font-size: 18px;
 }
 button {
   font: inherit;
   border: none;
   cursor: pointer;
-  background-color: var(--color-bg);
+  background-color: var(--color-brown);
   margin-bottom: 20px;
   font-size: inherit;
   font-weight: inherit;
+  border-radius: 5px;
+  color: var(--color-white);
 }
 img {
   max-width: 20px;
@@ -38,49 +44,72 @@ img {
 }
 input {
   max-width: 70px;
+  background-color: var(--color-white);
+  outline: none;
+  border: 2px solid var(--color-brown);
+  border-radius: 5px;
 }
 
 .score span {
-  background-color: #ffffff;
+  background-color: var(--color-white);
   margin-bottom: 10px;
   padding: 5px;
+  border-radius: 5px;
+}
+.score span:last-child {
+  margin-bottom: 0;
 }
 .container {
-  position: relative;
-  height: 100%;
-  max-width: 950px;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 830px;
   width: 100%;
-  margin: 0 auto;
   padding: 40px 40px;
-  background-color: #c0c0c0;
+  background-color: var(--color-bg);
   display: flex;
-  justify-content: left;
+  justify-content: space-around;
+  border-radius: 5px;
 }
 .playfield {
   width: 400px;
   height: 400px;
-  background-color: #ffffff;
+  background-color: var(--color-white);
   display: grid;
   grid-template-columns: repeat(10, auto);
-  border: 2px solid #6e6e6e;
   margin-bottom: 20px;
   margin-right: 20px;
   gap: 2px;
   padding: 2px;
+  border-radius: 5px;
+  border: 3px solid var(--color-brown);
 }
-/* .info {
-} */
+.info {
+  background: var(--color-white);
+  position: relative;
+  padding: 15px 10px;
+  border-radius: 10px;
+  height: 100%;
+  border: 3px solid var(--color-brown);
+}
 .score {
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  background: var(--color-brown);
+  padding: 10px;
+  border-radius: 5px;
 }
-
 @media screen and (max-width: 790px) {
   .container {
     display: flex;
+    justify-content: right;
     flex-direction: column;
+    top: 0px;
+    max-width: 500px;
+    padding: 20px;
   }
   .score {
     max-width: 400px;
@@ -95,6 +124,9 @@ input {
   }
 }
 @media screen and (max-width: 510px) {
+  body {
+    background: var(--color-bg);
+  }
   .container {
     padding: 20px 10px;
   }
@@ -115,6 +147,7 @@ input {
   }
   .info {
     width: 230px;
+    max-height: 100%;
   }
   .number {
     font-size: 15px;
@@ -123,8 +156,8 @@ input {
 .block {
   width: auto;
   height: auto;
-  background: #adadad;
-  border: 2px solid #6e6e6e;
+  background: var(--color-brown);
+  border: 2px solid var(--color-brown);
   text-align: center;
 }
 
@@ -133,6 +166,11 @@ input {
   min-height: 40px;
   text-align: center;
   padding: 5px 10px;
+  background: var(--color-green);
+  width: 100%;
+}
+.start:hover {
+  background-color: #434433;
 }
 .number {
   position: fixed;
@@ -142,6 +180,9 @@ input {
   min-height: 40px;
   text-align: center;
   padding: 5px 10px;
+}
+.open_modal:hover {
+  background: #69594e;
 }
 .modal {
   position: fixed;
@@ -164,7 +205,8 @@ input {
 }
 
 .modal_window {
-  background: #ffffff;
+  background: var(--color-white);
+  border: 3px solid var(--color-brown);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -172,13 +214,20 @@ input {
   max-width: 400px;
   border-radius: 10px;
   box-shadow: 0 10px 15px rgba(24, 24, 24, 0.4);
-  padding: 30px;
+  padding: 20px 25px;
   transform: translate(-50%, -50%) scale(1.15);
   opacity: 0;
   transition: all 300ms ease-in-out;
 }
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 30px;
+}
 .rules {
   margin-bottom: 30px;
+  text-align: justify;
 }
 .button_flex_rules {
   display: flex;
@@ -186,15 +235,15 @@ input {
 }
 .close_modal {
   position: relative;
-  margin: 0;
-  background-color: #c0c0c093;
+  margin: 20px 0 0 0;
+  background-color: var(--color-green);
   min-width: 100px;
   min-height: 40px;
   text-align: center;
   padding: 5px 10px;
 }
 .close_modal:hover {
-  background-color: #c0c0c0;
+  background-color: #434433;
 }
 
 .modal.open {
@@ -222,10 +271,14 @@ input {
 .save {
   position: relative;
   margin: 0;
-  background-color: #c0c0c093;
+  background-color: var(--color-brown);
   min-width: 100px;
   min-height: 40px;
   text-align: center;
   padding: 5px 10px;
-  margin-right: 10px;
+  margin: 20px 10px 0 0;
+  height: 40px;
+}
+.save:hover {
+  background: #69594e;
 }
