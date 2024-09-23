@@ -1,3 +1,20 @@
+@font-face {
+  font-family: "FlowRegular";
+  src: url("../fonts/FlowRegular/FlowRegular.eot");
+  src: url("../fonts/FlowRegular/FlowRegular.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/FlowRegular/FlowRegular.woff") format("woff"),
+    url("../fonts/FlowRegular/FlowRegular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+:root {
+  --color-brown: #87766a;
+  --color-green: #5d5e4a;
+  --color-orange: #955727;
+  --color-white: #b4a89b;
+  --color-bg: #38312c;
+}
 * {
   padding: 0;
   margin: 0;
@@ -8,7 +25,7 @@ button {
   font: inherit;
   border: none;
   cursor: pointer;
-  background-color: #ffffff;
+  background-color: var(--color-bg);
   margin-bottom: 20px;
   font-size: inherit;
   font-weight: inherit;
@@ -20,12 +37,15 @@ img {
 input {
   max-width: 70px;
 }
+
 .score span {
   background-color: #ffffff;
   margin-bottom: 10px;
   padding: 5px;
 }
 .container {
+  position: relative;
+  height: 100%;
   max-width: 950px;
   width: 100%;
   margin: 0 auto;
@@ -54,6 +74,7 @@ input {
   flex-direction: column;
   margin-bottom: 10px;
 }
+
 @media screen and (max-width: 790px) {
   .container {
     display: flex;
@@ -64,7 +85,7 @@ input {
   }
   .info {
     width: 400px;
-    height: 400px;
+
     margin: 0 auto 20px auto;
   }
   .playfield {
@@ -83,7 +104,6 @@ input {
   }
   .info {
     width: 300px;
-    height: 300px;
   }
 }
 @media screen and (max-width: 320px) {
@@ -93,7 +113,6 @@ input {
   }
   .info {
     width: 230px;
-    height: 230px;
   }
   .number {
     font-size: 15px;
