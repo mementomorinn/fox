@@ -134,7 +134,7 @@ function checkCell(x, y, countFox) {
             if (q === y || w === x || w - q === x - y || w - x === y - q) {
               cellExclusion = document.querySelector(`.x${w}y${q}`);
               // cellExclusion.style.background = "#55483eb6";
-              cellExclusion.style.opacity = "0.7";
+              cellExclusion.style.opacity = "0.5";
               arrCell[q][w] = 2;
             }
           }

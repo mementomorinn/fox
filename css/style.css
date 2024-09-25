@@ -13,7 +13,7 @@
   --color-green: #5d5e4a;
   --color-orange: #955727;
   --color-white: #b9ab9b;
-  --color-bg: #4d433c;
+  --color-bg: #443c36;
   --color-line: #262c31;
 }
 * {
@@ -26,7 +26,11 @@ body {
   background: var(--color-brown);
   color: var(--color-bg);
   font-size: 18px;
+  overflow: visible;
 }
+/* .no-scroll {
+  overflow: hidden;
+} */
 button {
   font: inherit;
   border: none;
@@ -170,10 +174,10 @@ input {
   width: 100%;
 }
 .start:hover {
-  background-color: #434433;
+  background: var(--color-bg);
 }
 .number {
-  position: fixed;
+  position: absolute;
 }
 .open_modal {
   min-width: 100px;
@@ -182,7 +186,7 @@ input {
   padding: 5px 10px;
 }
 .open_modal:hover {
-  background: #69594e;
+  background: var(--color-bg);
 }
 .modal {
   position: fixed;
@@ -193,7 +197,8 @@ input {
   padding: 15px;
   transition: top 0ms ease-in-out 300ms;
 }
-.modal .overlay {
+.overlay {
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -218,6 +223,7 @@ input {
   transform: translate(-50%, -50%) scale(1.15);
   opacity: 0;
   transition: all 300ms ease-in-out;
+  overflow-y: auto;
 }
 .title {
   font-size: 20px;
@@ -243,19 +249,22 @@ input {
   padding: 5px 10px;
 }
 .close_modal:hover {
-  background-color: #434433;
+  background: var(--color-bg);
 }
 
 .modal.open {
   top: 0px;
   transition: top 0ms ease-in-out 0ms;
+  overflow: auto;
 }
-.modal.open .overlay {
+.overlay.open {
+  display: block;
   opacity: 1;
   transition: all 300ms ease-in-out;
 }
 .modal.open .modal_window {
-  transform: translate(-50%, -50%) scale(1);
+  top: 40px;
+  transform: translate(-50%) scale(1);
   opacity: 1;
 }
 .settings {
@@ -280,5 +289,5 @@ input {
   height: 40px;
 }
 .save:hover {
-  background: #69594e;
+  background: var(--color-bg);
 }
