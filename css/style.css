@@ -13,7 +13,7 @@
   --color-green: #5d5e4a;
   --color-orange: #955727;
   --color-white: #b9ab9b;
-  --color-bg: #443c36;
+  --color-bg: #574b43;
   --color-line: #262c31;
 }
 * {
@@ -93,7 +93,7 @@ input {
   background: var(--color-white);
   position: relative;
   padding: 15px 10px;
-  border-radius: 10px;
+  border-radius: 5px;
   height: 100%;
   border: 3px solid var(--color-brown);
 }
@@ -106,7 +106,7 @@ input {
   padding: 10px;
   border-radius: 5px;
 }
-@media screen and (max-width: 790px) {
+@media screen and (max-width: 860px) {
   .container {
     display: flex;
     justify-content: right;
@@ -125,6 +125,12 @@ input {
   }
   .playfield {
     margin: 0 auto 20px auto;
+  }
+  .open_modal {
+    width: 100%;
+  }
+  button {
+    padding-bottom: 10px;
   }
 }
 @media screen and (max-width: 510px) {
@@ -213,7 +219,6 @@ input {
   background: var(--color-white);
   border: 3px solid var(--color-brown);
   position: absolute;
-  top: 50%;
   left: 50%;
   width: 85%;
   max-width: 400px;
