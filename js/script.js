@@ -1,6 +1,8 @@
 //переменные
 const playfield = document.querySelector(".playfield");
 const start = document.getElementById("btn-start");
+const container = document.querySelector(".container");
+const begin = document.querySelector(".begin");
 let countFox;
 let cell;
 let cellExclusion;
@@ -22,7 +24,8 @@ start.addEventListener("click", function () {
   cleaning(arrCell);
   fox(10);
   console.log(arrFox);
-  start.style.display = "none";
+  container.style.display = "flex";
+  begin.style.display = "none";
 });
 
 //разметка
@@ -75,10 +78,10 @@ function getXY(className) {
     if (arrFox[y][x]) {
       openFox++;
       cell.style.background = "center / 80% no-repeat url(./img/fox.png)"; //отрисовка лис
+
       count(x, y);
     } else {
       //если лисы нет
-      cell.style.background = "#ffffff";
       checkFox(x, y);
     }
     arrCell[y][x] = 1; //запись открытой клетки в массив
@@ -134,7 +137,7 @@ function checkCell(x, y, countFox) {
             if (q === y || w === x || w - q === x - y || w - x === y - q) {
               cellExclusion = document.querySelector(`.x${w}y${q}`);
               // cellExclusion.style.background = "#55483eb6";
-              cellExclusion.style.opacity = "0.5";
+              cellExclusion.style.background = "var(--color-orange)";
               arrCell[q][w] = 2;
             }
           }
@@ -143,3 +146,10 @@ function checkCell(x, y, countFox) {
     }
   }
 }
+
+//возврат на главную
+const home = document.getElementById("btn-home");
+home.addEventListener("click", function () {
+  container.style.display = "none";
+  begin.style.display = "block";
+});

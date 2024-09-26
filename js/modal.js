@@ -1,5 +1,6 @@
 const body = document.body;
 const overlay = document.querySelector(".overlay");
+
 //rules
 const modalRules = document.getElementById("modal-rules");
 const openRules = document.getElementById("open-modal-rules");
@@ -14,6 +15,7 @@ closeRules.addEventListener("click", function () {
   body.style.overflow = "visible";
   overlay.classList.remove("open");
 });
+
 //settings
 const modalSett = document.getElementById("modal-settings");
 const openSett = document.getElementById("open-modal-settings");

@@ -7,19 +7,25 @@
     <title>fox</title>
   </head>
   <body>
-    <div class="container begin"></div>
-    <div class="container play">
-      <section class="playfield"></section>
-      <section class="info">
-        <button class="start" id="btn-start">начать игру</button>
-        <div class="score">
-          <span>ходов сделано: 0</span>
-          <span>лис осталось: 10</span>
-          <span>таймер: 00:00</span>
-        </div>
+    <div class="begin">
+      <button class="start" id="btn-start">начать игру</button>
+      <div class="button_flex">
         <button class="open_modal" id="open-modal-rules">правила</button>
         <button class="open_modal" id="open-modal-settings">настройки</button>
-      </section>
+      </div>
+    </div>
+    <div class="container">
+      <section class="playfield"></section>
+      <div class="flex">
+        <section class="info">
+          <div class="score">
+            <span>ходов сделано: 0</span>
+            <span>лис осталось: 10</span>
+            <span>таймер: 00:00</span>
+          </div>
+        </section>
+        <button class="start home" id="btn-home">на главную</button>
+      </div>
     </div>
     <!-- окно с правилами -->
     <div class="overlay"></div>
@@ -67,5 +73,6 @@
     </div>
     <script src="js/modal.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/score.js"></script>
   </body>
 </html>

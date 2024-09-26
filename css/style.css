@@ -10,10 +10,10 @@
 }
 :root {
   --color-brown: #87766a;
-  --color-green: #5d5e4a;
-  --color-orange: #955727;
+  --color-green: #737548;
+  --color-orange: #a0907eb4;
   --color-white: #b9ab9b;
-  --color-bg: #574b43;
+  --color-bg: #3d3638;
   --color-line: #262c31;
 }
 * {
@@ -28,14 +28,11 @@ body {
   font-size: 18px;
   overflow: visible;
 }
-/* .no-scroll {
-  overflow: hidden;
-} */
 button {
   font: inherit;
   border: none;
   cursor: pointer;
-  background-color: var(--color-brown);
+  background-color: var(--color-bg);
   margin-bottom: 20px;
   font-size: inherit;
   font-weight: inherit;
@@ -59,11 +56,26 @@ input {
   margin-bottom: 10px;
   padding: 5px;
   border-radius: 5px;
+  border: 3px solid var(--color-brown);
 }
 .score span:last-child {
   margin-bottom: 0;
 }
+.begin {
+  margin: 40px auto;
+  max-width: 300px;
+  background: var(--color-white);
+  padding: 20px 20px;
+  border-radius: 5px;
+  box-shadow: 0px 10px 20px 10px rgba(58, 50, 50, 0.3);
+}
+
+.button_flex {
+  display: flex;
+  justify-content: space-between;
+}
 .container {
+  display: none;
   position: absolute;
   top: 50px;
   left: 50%;
@@ -72,14 +84,18 @@ input {
   width: 100%;
   padding: 40px 40px;
   background-color: var(--color-bg);
-  display: flex;
   justify-content: space-around;
-  border-radius: 5px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px 10px rgba(58, 50, 50, 0.5);
 }
+/* .flex {
+  max-width: 300px;
+  position: relative;
+} */
 .playfield {
   width: 400px;
   height: 400px;
-  background-color: var(--color-white);
+  background: var(--color-white);
   display: grid;
   grid-template-columns: repeat(10, auto);
   margin-bottom: 20px;
@@ -92,26 +108,24 @@ input {
 .info {
   background: var(--color-white);
   position: relative;
-  padding: 15px 10px;
+  padding: 10px 10px;
   border-radius: 5px;
-  height: 100%;
   border: 3px solid var(--color-brown);
+  height: 180px;
+  width: 300px;
+  margin-bottom: 20px;
 }
 .score {
   width: 100%;
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
-  background: var(--color-brown);
-  padding: 10px;
-  border-radius: 5px;
 }
 @media screen and (max-width: 860px) {
   .container {
-    display: flex;
     justify-content: right;
     flex-direction: column;
-    top: 0px;
+    top: 15px;
     max-width: 500px;
     padding: 20px;
   }
@@ -138,7 +152,8 @@ input {
     background: var(--color-bg);
   }
   .container {
-    padding: 20px 10px;
+    padding: 10px 10px;
+    box-shadow: none;
   }
 }
 @media screen and (max-width: 420px) {
@@ -179,8 +194,33 @@ input {
   background: var(--color-green);
   width: 100%;
 }
+.start.home {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+@media screen and (max-width: 860px) {
+  .start.home {
+    left: calc(50% - 200px);
+  }
+}
+@media screen and (max-width: 420px) {
+  .start.home {
+    max-width: 300px;
+    left: calc(50% - 150px);
+  }
+}
+@media screen and (max-width: 320px) {
+  .start.home {
+    max-width: 230px;
+    left: calc(50% - 115px);
+  }
+}
+
 .start:hover {
-  background: var(--color-bg);
+  background: var(--color-white);
+  color: var(--color-brown);
+  border: 2px solid var(--color-brown);
 }
 .number {
   position: absolute;
@@ -190,9 +230,13 @@ input {
   min-height: 40px;
   text-align: center;
   padding: 5px 10px;
+  width: 49%;
 }
 .open_modal:hover {
-  background: var(--color-bg);
+  background: var(--color-white);
+  color: var(--color-brown);
+  border: 2px solid var(--color-brown);
+  padding: 5px 8px;
 }
 .modal {
   position: fixed;
@@ -225,7 +269,8 @@ input {
   border-radius: 10px;
   box-shadow: 0 10px 15px rgba(24, 24, 24, 0.4);
   padding: 20px 25px;
-  transform: translate(-50%, 20%) scale(1.15);
+  transform: translate(-50%, 20%);
+  /* transform: translate(-50%, 20%) scale(1.15); */
   opacity: 0;
   transition: all 300ms ease-in-out;
   overflow-y: auto;
@@ -254,7 +299,9 @@ input {
   padding: 5px 10px;
 }
 .close_modal:hover {
-  background: var(--color-bg);
+  background: var(--color-white);
+  color: var(--color-brown);
+  border: 2px solid var(--color-brown);
 }
 
 .modal.open {
@@ -269,7 +316,8 @@ input {
 }
 .modal.open .modal_window {
   top: 0;
-  transform: translate(-50%, 30px) scale(1);
+  transform: translate(-50%, 30px);
+  /* transform: translate(-50%, 30px) scale(1); */
   opacity: 1;
 }
 .settings {
@@ -294,5 +342,7 @@ input {
   height: 40px;
 }
 .save:hover {
-  background: var(--color-bg);
+  background: var(--color-white);
+  color: var(--color-brown);
+  border: 2px solid var(--color-brown);
 }
