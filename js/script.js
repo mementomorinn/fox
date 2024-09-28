@@ -91,9 +91,9 @@ function getXY(className) {
 //проверка на победу
 function checkWin() {
   if (foxNumber === openFox) {
-    start.innerText = `поздравляем, вы нашли всех лис!!!
-       нажмите, чтобы начать новую игру`;
-    start.style.display = "block";
+    // start.innerText = `поздравляем, вы нашли всех лис!!!
+    //    нажмите, чтобы начать новую игру`;
+    // start.style.display = "block";
   }
 }
 //подсчет ближайших лис при открытии пустой клетки

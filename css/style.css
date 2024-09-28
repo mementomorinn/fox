@@ -143,9 +143,9 @@ input {
   .open_modal {
     width: 100%;
   }
-  button {
+  /* button {
     padding-bottom: 10px;
-  }
+  } */
 }
 @media screen and (max-width: 510px) {
   body {
@@ -219,7 +219,7 @@ input {
 
 .start:hover {
   background: var(--color-white);
-  color: var(--color-brown);
+  color: var(--color-bg);
   border: 2px solid var(--color-brown);
 }
 .number {
@@ -325,10 +325,41 @@ input {
   justify-content: space-between;
   margin-bottom: 30px;
 }
+.settings button {
+  position: relative;
+  background: #94585896;
+  width: 45px;
+  height: 25px;
+  border-radius: 20px;
+  border: 2px solid #8f4e4e;
+  /* display: flex;
+  justify-content: left; */
+}
+.settings.on button {
+  background: #8aa06096;
+  border: 2px solid #818d52;
+  /* justify-content: right; */
+}
 .button_flex_settings {
   margin-top: 100px;
   display: flex;
   justify-content: right;
+}
+.round {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #8d4d4d;
+  height: 19px;
+  width: 19px;
+  border-radius: 20px;
+  margin: 1px;
+  transition: 100ms;
+}
+.settings.on button > .round {
+  background: #808b52;
+  left: 48%;
+  transition: 100ms;
 }
 .save {
   position: relative;
