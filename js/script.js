@@ -14,6 +14,7 @@ let ry = 0;
 let arrFox = new Array(); //массив с лисами
 let arrCell = new Array(); //массив с открытыми клетками
 let isCheckCellTrue = true;
+let MaxFoxNum = 10; //
 
 //начало игры
 start.addEventListener("click", function () {
@@ -22,7 +23,7 @@ start.addEventListener("click", function () {
   marking();
   cleaning(arrFox);
   cleaning(arrCell);
-  fox(10);
+  fox(MaxFoxNum);
   console.log(arrFox);
   container.style.display = "flex";
   begin.style.display = "none";
@@ -91,9 +92,6 @@ function getXY(className) {
 //проверка на победу
 function checkWin() {
   if (foxNumber === openFox) {
-    // start.innerText = `поздравляем, вы нашли всех лис!!!
-    //    нажмите, чтобы начать новую игру`;
-    // start.style.display = "block";
   }
 }
 //подсчет ближайших лис при открытии пустой клетки
@@ -136,7 +134,6 @@ function checkCell(x, y, countFox) {
           if (arrCell[q][w] === 0 && arrFox[q][w] === 0) {
             if (q === y || w === x || w - q === x - y || w - x === y - q) {
               cellExclusion = document.querySelector(`.x${w}y${q}`);
-              // cellExclusion.style.background = "#55483eb6";
               cellExclusion.style.background = "var(--color-orange)";
               arrCell[q][w] = 2;
             }
