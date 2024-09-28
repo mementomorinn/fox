@@ -62,5 +62,17 @@ save.addEventListener("click", function () {
       error();
     }
   }
-  console.log(finalCheckCell, finalTimer, MaxFoxNum);
+  // console.log(finalCheckCell, finalTimer, MaxFoxNum);
 });
+
+//score
+//изменение счетчика лис
+function foxCounter(num) {
+  const counter = document.getElementById("fox-counter");
+  counter.innerText = `лис осталось: ${num}`;
+}
+//изменение счетчика ходов
+function stepCounter(num) {
+  const counter = document.getElementById("step-counter");
+  counter.innerText = `ходов сделано: ${num}`;
+}

@@ -13,13 +13,14 @@ let rx = 0;
 let ry = 0;
 let arrFox = new Array(); //массив с лисами
 let arrCell = new Array(); //массив с открытыми клетками
-let isCheckCellTrue = true;
-let MaxFoxNum = 10; //
+let MaxFoxNum = 10;
+let stepCount = 0;
 
 //начало игры
 start.addEventListener("click", function () {
   openFox = 0;
   foxNumber = 0;
+  stepCount = 0;
   marking();
   cleaning(arrFox);
   cleaning(arrCell);
@@ -27,6 +28,8 @@ start.addEventListener("click", function () {
   console.log(arrFox);
   container.style.display = "flex";
   begin.style.display = "none";
+  foxCounter(MaxFoxNum);
+  stepCounter(0);
 });
 
 //разметка
@@ -74,18 +77,21 @@ function getXY(className) {
   const x = +className.slice(7, 8);
   const y = +className.slice(9);
   cell = document.querySelector(`.x${x}y${y}`);
-  //если есть лиса
   if (arrCell[y][x] === 0) {
+    //если есть лиса
     if (arrFox[y][x]) {
       openFox++;
       cell.style.background = "center / 80% no-repeat url(./img/fox.png)"; //отрисовка лис
-
+      foxNumber--;
+      foxCounter(foxNumber);
       count(x, y);
     } else {
       //если лисы нет
       checkFox(x, y);
     }
     arrCell[y][x] = 1; //запись открытой клетки в массив
+    stepCount++;
+    stepCounter(stepCount);
     checkWin();
   }
 }
@@ -127,7 +133,7 @@ function count(x, y) {
 }
 //подсвечивание клеток, в которых не может быть лис
 function checkCell(x, y, countFox) {
-  if (isCheckCellTrue) {
+  if (finalCheckCell) {
     if (countFox === 0) {
       for (let q = 0; q <= 9; q++) {
         for (let w = 9; w >= 0; w--) {
