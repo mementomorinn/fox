@@ -4,31 +4,38 @@ const btnTimer = document.getElementById("timer");
 const btnCheckCell = document.getElementById("check-cell");
 const settTimer = btnTimer.parentElement;
 const settCheck = btnCheckCell.parentElement;
-let isTimer = 1;
-let isCheckCell = 0;
 let foxNum = 10;
+let isCheckCell = 0;
 let finalCheckCell = 0;
+let isTimer = 1;
 let finalTimer = 1;
 
 //слайдер
 btnTimer.addEventListener("click", function (e) {
-  if (isTimer) {
+  timerOnOff(isTimer);
+});
+
+function timerOnOff(timer) {
+  if (timer) {
     settTimer.classList.remove("on");
     isTimer = 0;
   } else {
     settTimer.classList.add("on");
     isTimer = 1;
   }
-});
+}
 btnCheckCell.addEventListener("click", function (e) {
-  if (isCheckCell) {
+  checkCellOnOff(isCheckCell);
+});
+function checkCellOnOff(checkCell) {
+  if (checkCell) {
     settCheck.classList.remove("on");
     isCheckCell = 0;
   } else {
     settCheck.classList.add("on");
     isCheckCell = 1;
   }
-});
+}
 
 //количество лис
 const text = document.getElementById("text");

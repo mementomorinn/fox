@@ -24,11 +24,16 @@ openSett.addEventListener("click", function () {
   modalSett.classList.add("open");
   body.style.overflow = "hidden";
   overlay.classList.add("open");
+  //сброс настроек, если не нажата кнопка save
+  timerOnOff(!finalTimer);
+  checkCellOnOff(!finalCheckCell);
 });
 closeSett.addEventListener("click", function () {
   modalSett.classList.remove("open");
   body.style.overflow = "visible";
   overlay.classList.remove("open");
+  //сброс настроек, если не нажата кнопка save
+  foxNum = MaxFoxNum;
 });
 
 //confirm
