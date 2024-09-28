@@ -147,9 +147,9 @@ function checkCell(x, y, countFox) {
   }
 }
 
-//возврат на главную
-const home = document.getElementById("btn-home");
-home.addEventListener("click", function () {
-  container.style.display = "none";
-  begin.style.display = "block";
-});
+// //возврат на главную
+// const home = document.getElementById("home");
+// home.addEventListener("click", function () {
+//   container.style.display = "none";
+//   begin.style.display = "block";
+// });

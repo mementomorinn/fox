@@ -30,3 +30,27 @@ closeSett.addEventListener("click", function () {
   body.style.overflow = "visible";
   overlay.classList.remove("open");
 });
+
+//confirm
+const modalConf = document.getElementById("modal-confirm");
+const openConf = document.getElementById("open-modal-confirm");
+const closeConf = document.getElementById("close-modal-confirm");
+openConf.addEventListener("click", function () {
+  modalConf.classList.add("open");
+  body.style.overflow = "hidden";
+  overlay.classList.add("open");
+});
+closeConf.addEventListener("click", closeConfirm);
+function closeConfirm() {
+  modalConf.classList.remove("open");
+  body.style.overflow = "visible";
+  overlay.classList.remove("open");
+}
+
+//home
+const home = document.getElementById("home");
+home.addEventListener("click", function () {
+  closeConfirm();
+  container.style.display = "none";
+  begin.style.display = "block";
+});

@@ -24,7 +24,7 @@
             <span>таймер: 00:00</span>
           </div>
         </section>
-        <button class="start home" id="btn-home">на главную</button>
+        <button class="start home" id="open-modal-confirm">на главную</button>
       </div>
     </div>
     <!-- окно с правилами -->
@@ -68,6 +68,17 @@
         <div class="button_flex_settings">
           <button id="save" class="save">сохранить</button>
           <button id="close-modal-settings" class="close_modal">к игре!</button>
+        </div>
+      </div>
+    </div>
+    <!-- окно с подтверждением -->
+    <div class="modal" id="modal-confirm">
+      <div class="overlay"></div>
+      <div class="modal_window">
+        <div class="title">покинуть игру?</div>
+        <div class="button_flex_confirm">
+          <button id="close-modal-confirm" class="save">нет</button>
+          <button id="home" class="close_modal">да</button>
         </div>
       </div>
     </div>
