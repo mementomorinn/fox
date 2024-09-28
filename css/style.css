@@ -48,8 +48,15 @@ input {
   background-color: var(--color-white);
   outline: none;
   border-radius: 5px;
+  text-align: center;
+  padding: 2px 5px;
+  font-family: inherit;
+  font-size: 16px;
+  letter-spacing: 1px;
 }
-
+var {
+  font-style: normal;
+}
 .score span {
   background-color: var(--color-white);
   margin-bottom: 10px;

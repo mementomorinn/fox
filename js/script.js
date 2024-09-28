@@ -15,6 +15,7 @@ let arrFox = new Array(); //массив с лисами
 let arrCell = new Array(); //массив с открытыми клетками
 let MaxFoxNum = 10;
 let stepCount = 0;
+let timerRun;
 
 //начало игры
 start.addEventListener("click", function () {
@@ -30,6 +31,7 @@ start.addEventListener("click", function () {
   begin.style.display = "none";
   foxCounter(MaxFoxNum);
   stepCounter(0);
+  timerRun = setInterval(timer, 1000);
 });
 
 //разметка
@@ -97,7 +99,8 @@ function getXY(className) {
 }
 //проверка на победу
 function checkWin() {
-  if (foxNumber === openFox) {
+  if (foxNumber === 0) {
+    clearInterval(timerRun);
   }
 }
 //подсчет ближайших лис при открытии пустой клетки

@@ -9,7 +9,8 @@ let isCheckCell = 0;
 let finalCheckCell = 0;
 let isTimer = 1;
 let finalTimer = 1;
-
+let min = 0;
+let sec = 0;
 //слайдер
 btnTimer.addEventListener("click", function (e) {
   timerOnOff(isTimer);
@@ -76,10 +77,32 @@ save.addEventListener("click", function () {
 //изменение счетчика лис
 function foxCounter(num) {
   const counter = document.getElementById("fox-counter");
-  counter.innerText = `лис осталось: ${num}`;
+  counter.innerText = `${num}`;
 }
 //изменение счетчика ходов
 function stepCounter(num) {
   const counter = document.getElementById("step-counter");
-  counter.innerText = `ходов сделано: ${num}`;
+  counter.innerText = `${num}`;
 }
+//изменение таймера
+function updateTime(min, sec) {
+  const timer = document.getElementById("time");
+  if (min < 10) {
+    min = `0${min}`;
+  }
+  if (sec < 10) {
+    sec = `0${sec}`;
+  }
+  timer.innerText = `${min}:${sec}`;
+}
+//счет времени
+function timer() {
+  sec++;
+  if (sec === 60) {
+    min++;
+    sec = 0;
+  }
+  updateTime(min, sec);
+}
+
+// setInterval(timer, 1000);
