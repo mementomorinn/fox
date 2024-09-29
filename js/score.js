@@ -1,5 +1,4 @@
 //setting
-const save = document.getElementById("save");
 const btnTimer = document.getElementById("timer");
 const btnCheckCell = document.getElementById("check-cell");
 const settTimer = btnTimer.parentElement;
@@ -58,8 +57,8 @@ function error() {
   text.style.display = "block";
   inputFox.style.border = "2px solid #8f4e4e";
 }
-
-save.addEventListener("click", function () {
+//сохранение настроек
+function saveSett() {
   foxNum = parseInt(inputFox.value);
   finalTimer = isTimer;
   finalCheckCell = isCheckCell;
@@ -71,22 +70,22 @@ save.addEventListener("click", function () {
     }
   }
   // console.log(finalCheckCell, finalTimer, MaxFoxNum);
-});
+}
 
 //score
 //изменение счетчика лис
 function foxCounter(num) {
-  const counter = document.getElementById("fox-counter");
+  const counter = document.getElementById(`fox-counter-game`);
   counter.innerText = `${num}`;
 }
 //изменение счетчика ходов
-function stepCounter(num) {
-  const counter = document.getElementById("step-counter");
+function stepCounter(num, id) {
+  const counter = document.getElementById(`step-counter-${id}`);
   counter.innerText = `${num}`;
 }
 //изменение таймера
-function updateTime(min, sec) {
-  const timer = document.getElementById("time");
+function updateTime(min, sec, id) {
+  const timer = document.getElementById(`time-${id}`);
   if (min < 10) {
     min = `0${min}`;
   }
@@ -102,7 +101,16 @@ function timer() {
     min++;
     sec = 0;
   }
-  updateTime(min, sec);
+  updateTime(min, sec, "game");
 }
 
+//отображение поля с таймером
+function showTimer(finalTimer) {
+  const timerFields = document.querySelector(".timer_display");
+  if (finalTimer) {
+    timerFields.style.display = "block";
+  } else {
+    timerFields.style.display = "none";
+  }
+}
 // setInterval(timer, 1000);

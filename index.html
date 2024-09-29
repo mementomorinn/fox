@@ -7,11 +7,21 @@
     <title>fox</title>
   </head>
   <body>
-    <div class="begin">
-      <button class="start" id="btn-start">начать игру</button>
-      <div class="button_flex">
-        <button class="open_modal" id="open-modal-rules">правила</button>
-        <button class="open_modal" id="open-modal-settings">настройки</button>
+    <div class="begin_container">
+      <div class="begin">
+        <button class="start" onclick="startGame()">начать игру</button>
+        <div class="button_flex">
+          <button class="open_modal" id="open-modal-rules">правила</button>
+          <button class="open_modal" id="open-modal-settings">настройки</button>
+        </div>
+      </div>
+      <div class="result_score begin">
+        <div class="title">рекорд</div>
+        <div class="score">
+          <span>ходов сделано: <var id="step-counter-record"></var></span>
+          <span>счет: <var id="fox-counter-record"></var></span>
+          <span>время: <var id="time-record">00:00</var></span>
+        </div>
       </div>
     </div>
     <div class="container">
@@ -19,9 +29,11 @@
       <div class="flex">
         <section class="info">
           <div class="score">
-            <span>ходов сделано: <var id="step-counter"></var></span>
-            <span>лис осталось: <var id="fox-counter"></var></span>
-            <span>таймер: <var id="time">00:00</var></span>
+            <span>ходов сделано: <var id="step-counter-game"></var></span>
+            <span>лис осталось: <var id="fox-counter-game"></var></span>
+            <span class="timer_display"
+              >таймер: <var id="time-game"></var
+            ></span>
           </div>
         </section>
         <button class="start home" id="open-modal-confirm">на главную</button>
@@ -73,7 +85,7 @@
           введите целое число от одного до пятнадцати
         </div>
         <div class="button_flex_settings">
-          <button id="save" class="save">сохранить</button>
+          <button onclick="saveSett()" class="save">сохранить</button>
           <button id="close-modal-settings" class="close_modal">к игре!</button>
         </div>
       </div>
@@ -85,7 +97,31 @@
         <div class="title">покинуть игру?</div>
         <div class="button_flex_confirm">
           <button id="close-modal-confirm" class="save">нет</button>
-          <button id="home" class="close_modal">да</button>
+          <button onclick="goHome()" class="close_modal">да</button>
+        </div>
+      </div>
+    </div>
+    <!-- окно после выигрыша -->
+    <div class="modal" id="modal-win">
+      <div class="overlay"></div>
+      <div class="modal_window">
+        <div class="title">поздравляем, вы нашли всех лис!</div>
+        <div class="result_score">
+          <div class="score">
+            <span>ходов сделано: <var id="step-counter-final"></var></span>
+            <span>счет: <var id="score-final"></var></span>
+            <span class="timer_display"
+              >времени затрачено: <var id="time-final"></var
+            ></span>
+          </div>
+        </div>
+        <div class="button_flex_win">
+          <button onclick="closeModalWin(), startGame()" class="save">
+            заново
+          </button>
+          <button onclick="closeModalWin(), goHome()" class="close_modal">
+            на главную
+          </button>
         </div>
       </div>
     </div>

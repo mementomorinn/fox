@@ -53,9 +53,25 @@ function closeConfirm() {
 }
 
 //home
-const home = document.getElementById("home");
-home.addEventListener("click", function () {
+// const home = document.getElementById("home");
+// home.addEventListener("click",
+function goHome() {
   closeConfirm();
   container.style.display = "none";
   begin.style.display = "block";
-});
+  clearInterval(timerRun);
+  // openModalWin();
+}
+
+//win
+const win = document.getElementById("modal-win");
+function openModalWin() {
+  win.classList.add("open");
+  body.style.overflow = "hidden";
+  overlay.classList.add("open");
+}
+function closeModalWin() {
+  win.classList.remove("open");
+  body.style.overflow = "visible";
+  overlay.classList.remove("open");
+}

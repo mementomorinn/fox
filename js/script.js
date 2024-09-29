@@ -2,7 +2,7 @@
 const playfield = document.querySelector(".playfield");
 const start = document.getElementById("btn-start");
 const container = document.querySelector(".container");
-const begin = document.querySelector(".begin");
+const begin = document.querySelector(".begin_container");
 let countFox;
 let cell;
 let cellExclusion;
@@ -18,7 +18,9 @@ let stepCount = 0;
 let timerRun;
 
 //начало игры
-start.addEventListener("click", function () {
+function startGame() {
+  min = 0;
+  sec = 0;
   openFox = 0;
   foxNumber = 0;
   stepCount = 0;
@@ -29,10 +31,12 @@ start.addEventListener("click", function () {
   console.log(arrFox);
   container.style.display = "flex";
   begin.style.display = "none";
+  showTimer(finalTimer);
   foxCounter(MaxFoxNum);
-  stepCounter(0);
+  stepCounter(0, "game");
+  updateTime(0, 0, "game");
   timerRun = setInterval(timer, 1000);
-});
+}
 
 //разметка
 function marking() {
@@ -93,7 +97,7 @@ function getXY(className) {
     }
     arrCell[y][x] = 1; //запись открытой клетки в массив
     stepCount++;
-    stepCounter(stepCount);
+    stepCounter(stepCount, "game");
     checkWin();
   }
 }
@@ -101,6 +105,7 @@ function getXY(className) {
 function checkWin() {
   if (foxNumber === 0) {
     clearInterval(timerRun);
+    openModalWin();
   }
 }
 //подсчет ближайших лис при открытии пустой клетки

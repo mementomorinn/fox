@@ -57,6 +57,9 @@ input {
 var {
   font-style: normal;
 }
+.timer_display {
+  display: block;
+}
 .score span {
   background-color: var(--color-white);
   margin-bottom: 10px;
@@ -67,6 +70,7 @@ var {
 .score span:last-child {
   margin-bottom: 0;
 }
+
 .begin {
   margin: 40px auto;
   max-width: 300px;
@@ -75,7 +79,9 @@ var {
   border-radius: 5px;
   box-shadow: 0px 10px 20px 10px rgba(58, 50, 50, 0.3);
 }
-
+.result_score > .title {
+  margin-bottom: 10px;
+}
 .button_flex {
   display: flex;
   justify-content: space-between;
@@ -117,7 +123,6 @@ var {
   padding: 10px 10px;
   border-radius: 5px;
   border: 3px solid var(--color-brown);
-  height: 180px;
   width: 300px;
   margin-bottom: 20px;
 }
@@ -408,5 +413,15 @@ var {
 }
 .button_flex_confirm {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+.button_flex_confirm > button {
+  width: 100%;
+}
+.button_flex_win {
+  display: flex;
+  justify-content: space-between;
+}
+.button_flex_win > button {
+  width: 100%;
 }
