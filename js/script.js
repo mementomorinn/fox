@@ -17,13 +17,9 @@ let MaxFoxNum = 10;
 let stepCount = 0;
 let timerRun;
 
-//рекорды
-// let recordScore = 0;
-// let recordTime = 0;
-// let recordStep = 0;
-window.addEventListener("load", () => {
-  showRecord();
-});
+// window.addEventListener("load", () => {
+//   showRecord();
+// });
 
 //начало игры
 function startGame() {

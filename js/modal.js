@@ -60,7 +60,7 @@ function goHome() {
   container.style.display = "none";
   begin.style.display = "block";
   clearInterval(timerRun);
-  showRecord();
+  // showRecord();
   // openModalWin();
 }
 
@@ -73,7 +73,7 @@ function openModalWin() {
   stepCounter(stepCount, "final");
   updateTime(min, sec, "final");
   scoreCounter(score, "final");
-  updateRecord(stepCount, score, min, sec);
+  // updateRecord(stepCount, score, min, sec);
 }
 function closeModalWin() {
   win.classList.remove("open");

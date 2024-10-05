@@ -13,12 +13,12 @@ let sec = 0;
 let score = 0;
 
 //сброс рекорда
-function resetRecord() {
-  localStorage.setItem("step", 101);
-  localStorage.setItem("score", 0);
-  localStorage.setItem("min", 100);
-  localStorage.setItem("sec", 60);
-}
+// function resetRecord() {
+//   localStorage.setItem("step", 101);
+//   localStorage.setItem("score", 0);
+//   localStorage.setItem("min", 100);
+//   localStorage.setItem("sec", 60);
+// }
 //слайдер
 btnTimer.addEventListener("click", function (e) {
   timerOnOff(isTimer);
@@ -155,29 +155,29 @@ function showTimer(finalTimer) {
   }
 }
 
-//запись переменных с рекордом
-function updateRecord(step, score, min, sec) {
-  if (step <= +window.localStorage.getItem("step")) {
-    if (score >= +window.localStorage.getItem("score")) {
-      if (min <= +window.localStorage.getItem("min")) {
-        if (sec <= +window.localStorage.getItem("sec")) {
-          window.localStorage.setItem("step", step);
-          window.localStorage.setItem("score", score);
-          window.localStorage.setItem("min", min);
-          window.localStorage.setItem("sec", sec);
-        }
-      }
-    }
-  }
-}
-function showRecord() {
-  //steps
-  stepCounter(+window.localStorage.getItem("step"), "record");
-  scoreCounter(+window.localStorage.getItem("score"), "record");
-  //time
-  updateTime(
-    +window.localStorage.getItem("min"),
-    +window.localStorage.getItem("sec"),
-    "record"
-  );
-}
+// //запись переменных с рекордом
+// function updateRecord(step, score, min, sec) {
+//   if (step <= +window.localStorage.getItem("step")) {
+//     if (score >= +window.localStorage.getItem("score")) {
+//       if (min <= +window.localStorage.getItem("min")) {
+//         if (sec <= +window.localStorage.getItem("sec")) {
+//           window.localStorage.setItem("step", step);
+//           window.localStorage.setItem("score", score);
+//           window.localStorage.setItem("min", min);
+//           window.localStorage.setItem("sec", sec);
+//         }
+//       }
+//     }
+//   }
+// }
+// function showRecord() {
+//   //steps
+//   stepCounter(+window.localStorage.getItem("step"), "record");
+//   scoreCounter(+window.localStorage.getItem("score"), "record");
+//   //time
+//   updateTime(
+//     +window.localStorage.getItem("min"),
+//     +window.localStorage.getItem("sec"),
+//     "record"
+//   );
+// }
