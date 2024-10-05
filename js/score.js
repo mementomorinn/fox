@@ -10,6 +10,7 @@ let isTimer = 1;
 let finalTimer = 1;
 let min = 0;
 let sec = 0;
+let score = 0;
 //слайдер
 btnTimer.addEventListener("click", function (e) {
   timerOnOff(isTimer);
@@ -73,6 +74,18 @@ function saveSett() {
 }
 
 //score
+//подсчет очков
+function addPoints(arr) {
+  let scoreTemp = -1;
+  for (let i = 0; i <= 9; i++) {
+    for (let j = 0; j <= 9; j++) {
+      if (arr[i][j] === 0) {
+        scoreTemp++;
+      }
+    }
+  }
+  return scoreTemp;
+}
 //изменение счетчика лис
 function foxCounter(num) {
   const counter = document.getElementById(`fox-counter-game`);
@@ -82,6 +95,11 @@ function foxCounter(num) {
 function stepCounter(num, id) {
   const counter = document.getElementById(`step-counter-${id}`);
   counter.innerText = `${num}`;
+}
+//изменение счетчика очков
+function scoreCounter(score, id) {
+  const counter = document.getElementById(`score-${id}`);
+  counter.innerText = `${score}`;
 }
 //изменение таймера
 function updateTime(min, sec, id) {

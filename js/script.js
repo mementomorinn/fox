@@ -89,6 +89,7 @@ function getXY(className) {
       openFox++;
       cell.style.background = "center / 80% no-repeat url(./img/fox.png)"; //отрисовка лис
       foxNumber--;
+      score += addPoints(arrCell);
       foxCounter(foxNumber);
       count(x, y);
     } else {

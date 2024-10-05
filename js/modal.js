@@ -69,6 +69,9 @@ function openModalWin() {
   win.classList.add("open");
   body.style.overflow = "hidden";
   overlay.classList.add("open");
+  stepCounter(stepCount, "final");
+  updateTime(min, sec, "final");
+  scoreCounter(score, "final");
 }
 function closeModalWin() {
   win.classList.remove("open");
