@@ -11,6 +11,14 @@ let finalTimer = 1;
 let min = 0;
 let sec = 0;
 let score = 0;
+
+//сброс рекорда
+function resetRecord() {
+  localStorage.setItem("step", 101);
+  localStorage.setItem("score", 0);
+  localStorage.setItem("min", 100);
+  localStorage.setItem("sec", 60);
+}
 //слайдер
 btnTimer.addEventListener("click", function (e) {
   timerOnOff(isTimer);
@@ -94,16 +102,31 @@ function foxCounter(num) {
 //изменение счетчика ходов
 function stepCounter(num, id) {
   const counter = document.getElementById(`step-counter-${id}`);
-  counter.innerText = `${num}`;
+  if (num > 100) {
+    counter.innerText = "0";
+  } else {
+    counter.innerText = `${num}`;
+  }
+  // counter.innerText = `${num}`;
 }
 //изменение счетчика очков
 function scoreCounter(score, id) {
-  const counter = document.getElementById(`score-${id}`);
-  counter.innerText = `${score}`;
+  const counter = document.getElementById(`score-counter-${id}`);
+  if (score) {
+    counter.innerText = `${score}`;
+  } else {
+    counter.innerText = `0`;
+  }
 }
 //изменение таймера
 function updateTime(min, sec, id) {
   const timer = document.getElementById(`time-${id}`);
+  if (min >= 99) {
+    min = 0;
+  }
+  if (sec > 59) {
+    sec = 0;
+  }
   if (min < 10) {
     min = `0${min}`;
   }
@@ -131,4 +154,30 @@ function showTimer(finalTimer) {
     timerFields.style.display = "none";
   }
 }
-// setInterval(timer, 1000);
+
+//запись переменных с рекордом
+function updateRecord(step, score, min, sec) {
+  if (step <= +localStorage.getItem("step")) {
+    if (score >= +localStorage.getItem("score")) {
+      if (min <= +localStorage.getItem("min")) {
+        if (sec <= +localStorage.getItem("sec")) {
+          localStorage.setItem("step", step);
+          localStorage.setItem("score", score);
+          localStorage.setItem("min", min);
+          localStorage.setItem("sec", sec);
+        }
+      }
+    }
+  }
+}
+function showRecord() {
+  //steps
+  stepCounter(+localStorage.getItem("step"), "record");
+  scoreCounter(+localStorage.getItem("score"), "record");
+  //time
+  updateTime(
+    +localStorage.getItem("min"),
+    +localStorage.getItem("sec"),
+    "record"
+  );
+}
