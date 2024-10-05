@@ -157,14 +157,14 @@ function showTimer(finalTimer) {
 
 //запись переменных с рекордом
 function updateRecord(step, score, min, sec) {
-  if (step <= +localStorage.getItem("step")) {
-    if (score >= +localStorage.getItem("score")) {
-      if (min <= +localStorage.getItem("min")) {
-        if (sec <= +localStorage.getItem("sec")) {
-          localStorage.setItem("step", step);
-          localStorage.setItem("score", score);
-          localStorage.setItem("min", min);
-          localStorage.setItem("sec", sec);
+  if (step <= +sessionStorage.getItem("step")) {
+    if (score >= +sessionStorage.getItem("score")) {
+      if (min <= +sessionStorage.getItem("min")) {
+        if (sec <= +sessionStorage.getItem("sec")) {
+          sessionStorage.setItem("step", step);
+          sessionStorage.setItem("score", score);
+          sessionStorage.setItem("min", min);
+          sessionStorage.setItem("sec", sec);
         }
       }
     }
@@ -172,12 +172,12 @@ function updateRecord(step, score, min, sec) {
 }
 function showRecord() {
   //steps
-  stepCounter(+localStorage.getItem("step"), "record");
-  scoreCounter(+localStorage.getItem("score"), "record");
+  stepCounter(+sessionStorage.getItem("step"), "record");
+  scoreCounter(+sessionStorage.getItem("score"), "record");
   //time
   updateTime(
-    +localStorage.getItem("min"),
-    +localStorage.getItem("sec"),
+    +sessionStorage.getItem("min"),
+    +sessionStorage.getItem("sec"),
     "record"
   );
 }
